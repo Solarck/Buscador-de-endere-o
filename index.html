@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de endereço</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section class="container">
+        <h1>Buscamos qualquer endereço, do Brasil, para você.</h1>
+
+        <div class="input">
+            <input name="cep" id="cep" class="input-num" required maxlength="9" autocomplete="off">
+        </div>
+        
+        <span>
+            <!-- <p class="aviso">O CEP deve conter 8 números.</p> -->
+        </span>
+
+        <div class="botao">
+            <button class="botao-buscar">Buscar</button>
+        </div>
+
+    </section>
+
+    <script src="App/main.js"></script>
+    <script src="App/mascara-input.js"></script>
+</body>
+</html>

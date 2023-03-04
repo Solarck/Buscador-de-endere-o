@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+   width: 100%; 
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   font-family: 'Golos Text', sans-serif;
+   background:  rgba(11, 11, 11, 0.466);
+}
+
+.container{
+    margin-top: 100px;
+    width: 450px;
+    height: 450px;
+    background: #ffffffe7;
+    display: block;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 5);
+    border-radius: 15px;
+}
+
+h1{
+    margin-top: 100px;
+    text-align: center;
+}
+
+.input{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.input-num{
+   width: 250px;
+   height: 50px;
+   border-radius: 10px;
+   padding-left: 15px;
+   font-size: 18px;
+   font-family: 'Golos Text', sans-serif;
+   font-weight: 300;
+}
+
+.aviso{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    margin-left: -55px;
+    color: red;
+}
+
+.botao{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.botao-buscar{
+    border: none;
+    background: rgb(240, 11, 99);
+    font-size: 18px;
+    color: #ffff;
+    width: 170px;
+    height: 50px;
+    border-radius: 10px;
+    font-family: 'Golos Text', sans-serif;
+    font-weight: 300;
+ }
+
+.botao-buscar:hover{
+    cursor: pointer;
+    background: rgb(240, 90, 147);
+}
+
+
+@media screen and (max-width:750px){
+    .container{
+        margin-top: 150px;
+        width: 90%;
+    }
+}
