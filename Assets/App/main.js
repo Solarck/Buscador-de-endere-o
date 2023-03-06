@@ -9,6 +9,6 @@ teste.addEventListener('click', () => {
     <h1 id="Localidade">Localidade: <p class="dados"> Carapicuíba</p> </h1>
     <h1 id="UF">UF: <p class="dados"> SP</p> </h1>
     <div class="botao">
-        <button class="botao-buscar" id="nova-busca">Nova Busca</button>
+        <button class="botao-busca" id="nova-busca">Nova Busca</button>
     </div>`
 })

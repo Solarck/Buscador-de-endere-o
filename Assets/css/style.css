@@ -108,6 +108,10 @@ h1 {
 
 @media screen and (max-width:750px) {
 
+    body{
+        width: 100%;
+    }
+
     .main {
         display: flex;
         justify-content: center;
@@ -116,12 +120,15 @@ h1 {
     }
 
     .container{
+        width: 85%;
         margin-top: 50px;
         margin-bottom: 18px;
     }
 
     .container-section{
+        width: 85%;
         margin-left: 0;
         margin-top: 0;
+        margin-bottom: 50px;
     }
 }
