@@ -1,4 +1,4 @@
-const input = document.getElementById('cep')
+const input = document.getElementById('input-cep')
 
 input.addEventListener('keypress', () =>{
     let inputLength = input.value.length

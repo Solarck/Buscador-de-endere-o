@@ -1,33 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscador de endereço</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Assets/css/style.css">
 </head>
+
 <body>
+    <div class="main">
+        <form class="container">
+            <h1>Buscamos qualquer endereço, do Brasil, para você.</h1>
 
-    <section class="container">
-        <h1>Buscamos qualquer endereço, do Brasil, para você.</h1>
+            <div class="input">
+                <input name="cep" id="input-cep" class="input-num" required maxlength="9" autocomplete="off" required>
+            </div>
 
-        <div class="input">
-            <input name="cep" id="cep" class="input-num" required maxlength="9" autocomplete="off">
-        </div>
-        
-        <span>
-            <!-- <p class="aviso">O CEP deve conter 8 números.</p> -->
-        </span>
+            <span>
+                <!-- <p class="aviso">O CEP deve conter 8 números.</p> -->
+            </span>
 
-        <div class="botao">
-            <button class="botao-buscar">Buscar</button>
-        </div>
+            <div class="botao">
+                <input type="submit" value="Buscar" class="botao-busca" id="botao-busca">
+            </div>
 
-    </section>
+        </form>
 
-    <script src="App/main.js"></script>
-    <script src="App/mascara-input.js"></script>
+        <section class="container-section">
+
+            <div class="campo-de-endereco">
+                <h1 id="cep">CEP: <p class="dados"> 06395-280</p>
+                </h1>
+                <h1 id="Logradouro">Logradouro: <p class="dados"> Rua Nova Prata</p>
+                </h1>
+                <h1 id="Bairro">Bairro: <p class="dados"> Cidade Ariston Estela Azevedo</p>
+                </h1>
+                <h1 id="Localidade">Localidade: <p class="dados"> Carapicuíba</p>
+                </h1>
+                <h1 id="UF">UF: <p class="dados"> SP</p>
+                </h1>
+
+                <div class="botao">
+                    <button class="botao-busca" id="nova-busca">Nova Busca</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="Assets/App/main.js"></script>
+    <script src="Assets/App/mascara-input.js"></script>
 </body>
+
 </html>
