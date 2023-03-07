@@ -13,10 +13,10 @@
 <body>
     <div class="main">
         <form class="container">
-            <h1>Buscamos qualquer endereço, do Brasil, para você.</h1>
+            <h1 class="legenda">Buscamos qualquer endereço, do Brasil, para você.</h1>
 
             <div class="input">
-                <input name="cep" id="input-cep" class="input-num" required maxlength="9" autocomplete="off" required>
+                <input name="cep" id="input-cep" class="input-num" maxlength="9" autocomplete="off" required >
             </div>
 
             <span>
@@ -24,7 +24,7 @@
             </span>
 
             <div class="botao">
-                <input type="submit" value="Buscar" class="botao-busca" id="botao-busca">
+                <button class="botao-busca" id="botao-busca">Buscar</button>
             </div>
 
         </form>
@@ -32,16 +32,11 @@
         <section class="container-section">
 
             <div class="campo-de-endereco">
-                <h1 id="cep">CEP: <p class="dados"> 06395-280</p>
-                </h1>
-                <h1 id="Logradouro">Logradouro: <p class="dados"> Rua Nova Prata</p>
-                </h1>
-                <h1 id="Bairro">Bairro: <p class="dados"> Cidade Ariston Estela Azevedo</p>
-                </h1>
-                <h1 id="Localidade">Localidade: <p class="dados"> Carapicuíba</p>
-                </h1>
-                <h1 id="UF">UF: <p class="dados"> SP</p>
-                </h1>
+                <h1 class="titulo" id="cep">CEP: <p class="dados"></p></h1>
+                <h1 class="titulo" id="Logradouro">Logradouro: <p class="dados"></p></h1>
+                <h1 class="titulo" id="Bairro">Bairro: <p class="dados"></p></h1>
+                <h1 class="titulo" id="Localidade">Localidade: <p class="dados"></p></h1>
+                <h1 class="titulo" id="UF">UF: <p class="dados"></p></h1>
 
                 <div class="botao">
                     <button class="botao-busca" id="nova-busca">Nova Busca</button>

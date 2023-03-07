@@ -29,8 +29,8 @@ body {
     border-radius: 15px;
 }
 
-h1 {
-    margin-top: 100px;
+.legenda{
+    margin-top: 50px;
     text-align: center;
 }
 
@@ -48,6 +48,7 @@ h1 {
     font-size: 18px;
     font-family: 'Golos Text', sans-serif;
     font-weight: 300;
+    margin-bottom: 25px;
 }
 
 .aviso {
@@ -82,10 +83,11 @@ h1 {
 }
 
 .container-section {
+    padding: 20px;
     margin-left: 20px;
     margin-top: 100px;
     width: 450px;
-    height: 450px;
+    height: 410px;
     background: #ffffffe7;
     display: block;
     justify-content: center;
@@ -94,12 +96,13 @@ h1 {
     border-radius: 15px;
 }
 
-h1 {
-    margin-top: 30px;
+.titulo{
+
     justify-content: start;
 }
 
 .dados {
+    margin-top: 35px;
     font-size: 18px;
     font-weight: 100;
     display: inline-block;
@@ -107,10 +110,6 @@ h1 {
 }
 
 @media screen and (max-width:750px) {
-
-    body{
-        width: 100%;
-    }
 
     .main {
         display: flex;
@@ -126,9 +125,13 @@ h1 {
     }
 
     .container-section{
-        width: 85%;
+        width: 79%;
         margin-left: 0;
         margin-top: 0;
         margin-bottom: 50px;
+    }
+
+    .legenda{
+        padding: 10px;
     }
 }
