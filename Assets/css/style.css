@@ -29,7 +29,7 @@ body {
     border-radius: 15px;
 }
 
-.legenda{
+.legenda {
     margin-top: 50px;
     text-align: center;
 }
@@ -55,7 +55,6 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 5px;
-    margin-left: -55px;
     color: red;
 }
 
@@ -96,7 +95,7 @@ body {
     border-radius: 15px;
 }
 
-.titulo{
+.titulo {
 
     justify-content: start;
 }
@@ -118,20 +117,20 @@ body {
         flex-direction: column;
     }
 
-    .container{
+    .container {
         width: 85%;
         margin-top: 50px;
         margin-bottom: 18px;
     }
 
-    .container-section{
-        width: 79%;
+    .container-section {
+        width: 77%;
         margin-left: 0;
         margin-top: 0;
         margin-bottom: 50px;
     }
 
-    .legenda{
+    .legenda {
         padding: 10px;
     }
 }

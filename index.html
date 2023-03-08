@@ -12,41 +12,38 @@
 
 <body>
     <div class="main">
-        <div class="container" id="form">
+        <section class="container">
             <h1 class="legenda">Buscamos qualquer endereço, do Brasil, para você.</h1>
 
             <div class="input">
-                <input name="cep" id="input-cep" class="input-num" maxlength="9" autocomplete="off" required >
+                <input name="cep" id="input-cep" class="input-num" maxlength="9" autocomplete="off" required>
             </div>
 
             <span>
-                <!-- <p class="aviso">O CEP deve conter 8 números.</p> -->
+                <!-- <p class="aviso">O cep não existe</p> -->
             </span>
 
             <div class="botao">
-                <button  class="botao-busca" id="botao-busca" onclick="consultaCep()">Buscar</button>
+                <button class="botao-busca" id="botao-busca" onclick="consultaCep()">Buscar</button>
             </div>
 
-        </div>
+        </section>
 
         <section class="container-section">
 
             <div class="campo-de-endereco">
-                <h1 class="titulo" id="cep">CEP: <p class="dados"></p></h1>
-                <h1 class="titulo" id="Logradouro">Logradouro: <p class="dados"></p></h1>
-                <h1 class="titulo" id="Bairro">Bairro: <p class="dados"></p></h1>
-                <h1 class="titulo" id="Localidade">Localidade: <p class="dados"></p></h1>
-                <h1 class="titulo" id="UF">UF: <p class="dados"></p></h1>
-
-                <div class="botao">
-                    <button class="botao-busca" id="nova-busca">Nova Busca</button>
-                </div>
+                <h1 class="titulo" id="cep">CEP: </h1>
+                <h1 class="titulo" id="Logradouro">Logradouro:</h1>
+                <h1 class="titulo" id="Bairro">Bairro:</h1>
+                <h1 class="titulo" id="Localidade">Localidade:</h1>
+                <h1 class="titulo" id="UF">UF:</h1>  
             </div>
+
         </section>
+        
     </div>
 
     <script src="Assets/App/main.js"></script>
     <script src="Assets/App/mascara-input.js"></script>
 </body>
-
 </html>
