@@ -1,36 +1,39 @@
-function consultaCep() {
+async function buscaCep() {
     const cep = document.getElementById('input-cep').value
 
-    let url = `https://viacep.com.br/ws/${cep}/json/`
-    
-    fetch(url).then(function (response) {
-        response.json().then(function(data){
+    try {
+        const conexaoApi = await fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        const conexaoConvertida = await conexaoApi.json()
 
-            const CEP = data.cep
-            const logradouro = data.logradouro
-            const bairro = data.bairro
-            const localidade = data.localidade
-            const UF = data.uf
-    
-            const busca = document.getElementById('botao-busca')
-            const campo = document.querySelector('.campo-de-endereco')
-            const novaBusca = document.getElementById('nova-busca')
-            const inputCep = document.getElementById('input-cep')
-    
-    
-            exibeResultado(busca, campo, CEP, logradouro, bairro, localidade, UF)
+        if (conexaoConvertida.erro) {
+            const exibeErro = document.getElementById('exibe-erro')
+            throw Error (exibeErro.innerHTML = 'O cep não existe')
+        }
 
-            novaBusca.addEventListener('click', () =>{
-                campo.innerHTML = `
+        const CEP = conexaoConvertida.cep
+        const logradouro = conexaoConvertida.logradouro
+        const bairro = conexaoConvertida.bairro
+        const localidade = conexaoConvertida.localidade
+        const UF = conexaoConvertida.uf
+
+        const busca = document.getElementById('botao-busca')
+        const campo = document.querySelector('.campo-de-endereco')
+        const novaBusca = document.getElementById('nova-busca')
+        const inputCep = document.getElementById('input-cep')
+
+        exibeResultado(busca, campo, CEP, logradouro, bairro, localidade, UF)
+
+        novaBusca.addEventListener('click', () => {
+            campo.innerHTML = `
                 <h1 class="titulo" id="cep">CEP: </h1>
                 <h1 class="titulo" id="Logradouro">Logradouro:</h1>
                 <h1 class="titulo" id="Bairro">Bairro:</h1>
                 <h1 class="titulo" id="Localidade">Localidade:</h1>
-                <h1 class="titulo" id="UF">UF:</h1>` 
-                inputCep.value = ' '
-            })
+                <h1 class="titulo" id="UF">UF:</h1>`
+            inputCep.value = ' '
         })
-    })
+    }
+    catch (erro){}
 }
 
 function exibeResultado(busca, campo, CEP, logradouro, bairro, localidade, UF) {
