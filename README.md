@@ -1,18 +1,16 @@
 # <p align="center">Buscador de CEP</p>
 
- <p align="center">Consumo da API ViaCEP</p>
+## <p align="center">Consumo da API ViaCEP</p>
 
 <div align="center">
 
-<img align="center" src="Assets/App/imgs/exemplo1.png">
+<img align="center" src="https://github.com/Solarck/Buscador-de-endereco/blob/main/Assets/imgs/exemplo1.png">
 
-<img align="center" src="Assets/App/imgs/exemplo1.png">
+<img align="center" src="https://github.com/Solarck/Buscador-de-endereco/blob/main/Assets/imgs/exemplo2.png">
 
 </div>
 
-## APi: 
-
-https://viacep.com.br/ws/01001000/json/
+## API: https://viacep.com.br/ws/01001000/json/
 
 
 
