@@ -10,17 +10,14 @@
     }
 
     let cepValue: any;
-    let exibeErro: any;
+    let statusDeErro: boolean | null = null;
     let dadosApi: DAdosApi | null = null;
-    
+
     async function buscaCep() {
-        try{
-        const conexaoApi = await fetch(`https://viacep.com.br/ws/${cepValue}/json/`);
+        const conexaoApi = await fetch(
+            `https://viacep.com.br/ws/${cepValue}/json/`
+        );
         const conexaoConvertida = await conexaoApi.json();
-        
-        if (conexaoConvertida.erro) {
-            throw Error (exibeErro.innerHTML = 'O cep não existe')
-        }
 
         dadosApi = {
             cep: conexaoConvertida.cep,
@@ -28,8 +25,15 @@
             bairro: conexaoConvertida.bairro,
             localidade: conexaoConvertida.localidade,
             uf: conexaoConvertida.uf,
-        }}
-        catch (erro){}
+        };
+
+        if (conexaoConvertida.erro) {
+            dadosApi = null;
+            statusDeErro = true;
+        } else {
+            statusDeErro = false;
+            dadosApi;
+        }
     }
 </script>
 
@@ -48,12 +52,13 @@
                 bind:this={input}
                 on:keypress={mascaraDeCep}
                 bind:value={cepValue}
+                class:erro-input={statusDeErro === true}
             />
         </div>
 
-        <span>
-            <p class="aviso" bind:this={exibeErro} />
-        </span>
+        {#if statusDeErro === true}
+            <span><p class="aviso">O cep não existe!</p></span>
+        {/if}
 
         <div class="botao">
             <button class="botao-busca" on:click={buscaCep}>Buscar</button>
@@ -63,11 +68,11 @@
     {#if dadosApi}
         <section class="container-section">
             <div class="campo-de-endereco">
-                <h1 class="titulo">CEP:  {dadosApi.cep}</h1>
-                <h1 class="titulo">Logradouro:  {dadosApi.logradouro}</h1>
-                <h1 class="titulo">Bairro:  {dadosApi.bairro}</h1>
-                <h1 class="titulo">Localidade:  {dadosApi.localidade}</h1>
-                <h1 class="titulo">UF:  {dadosApi.uf}</h1>
+                <h1 class="titulo">CEP: {dadosApi.cep}</h1>
+                <h1 class="titulo">Logradouro: {dadosApi.logradouro}</h1>
+                <h1 class="titulo">Bairro: {dadosApi.bairro}</h1>
+                <h1 class="titulo">Localidade: {dadosApi.localidade}</h1>
+                <h1 class="titulo">UF: {dadosApi.uf}</h1>
             </div>
         </section>
     {/if}
@@ -117,20 +122,23 @@
         font-size: 18px;
         font-family: "Golos Text", sans-serif;
         font-weight: 300;
-        margin-bottom: 25px;
     }
 
     .aviso {
         display: flex;
         justify-content: center;
-        margin-top: 5px;
+        margin: 15px;
         color: red;
+    }
+
+    .erro-input{
+        border: 1px solid #ff003e;
     }
 
     .botao {
         display: flex;
         justify-content: center;
-        margin-top: 25px;
+        margin-top: 15px;
     }
 
     .botao-busca {
@@ -151,7 +159,7 @@
     }
 
     .container-section {
-        padding: 20px;
+        padding: 16.5px;
         margin-left: 20px;
         margin-top: 100px;
         width: 450px;
@@ -177,13 +185,13 @@
         }
 
         .container {
-            width: 85%;
+            width: 97%;
             margin-top: 50px;
             margin-bottom: 18px;
         }
 
         .container-section {
-            width: 77%;
+            width: 88%;
             margin-left: 0;
             margin-top: 0;
             margin-bottom: 50px;
