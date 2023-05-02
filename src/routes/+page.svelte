@@ -1,5 +1,6 @@
 <script lang="ts">
     import type DAdosApi from "../utils/DadosApi";
+    import { buscaCep } from "../utils/requisicaoApi";
 
     let input: any;
     function mascaraDeCep() {
@@ -13,10 +14,8 @@
     let statusDeErro: boolean | null = null;
     let dadosApi: DAdosApi | null = null;
 
-    async function buscaCep() {
-        const conexaoApi = await fetch(
-            `https://viacep.com.br/ws/${cepValue}/json/`
-        );
+    async function aoSubmeter() {
+        const conexaoApi = await buscaCep(cepValue);
         const conexaoConvertida = await conexaoApi.json();
 
         dadosApi = {
@@ -61,7 +60,7 @@
         {/if}
 
         <div class="botao">
-            <button class="botao-busca" on:click={buscaCep}>Buscar</button>
+            <button class="botao-busca" on:click={aoSubmeter}>Buscar</button>
         </div>
     </section>
 
