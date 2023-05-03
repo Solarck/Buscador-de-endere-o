@@ -1,6 +1,7 @@
 <script lang="ts">
     import type DAdosApi from "../utils/DadosApi";
     import { buscaCep } from "../utils/requisicaoApi";
+    import montaCep from "../utils/dadosDoCep";
 
     let input: any;
     function mascaraDeCep() {
@@ -18,13 +19,7 @@
         const conexaoApi = await buscaCep(cepValue);
         const conexaoConvertida = await conexaoApi.json();
 
-        dadosApi = {
-            cep: conexaoConvertida.cep,
-            logradouro: conexaoConvertida.logradouro,
-            bairro: conexaoConvertida.bairro,
-            localidade: conexaoConvertida.localidade,
-            uf: conexaoConvertida.uf,
-        };
+        dadosApi = montaCep(conexaoConvertida);
 
         if (conexaoConvertida.erro) {
             dadosApi = null;
@@ -36,13 +31,13 @@
     }
 </script>
 
-<div class="main">
+<header class="main">
     <section class="container">
         <h1 class="legenda">
             Buscamos qualquer endereço, do Brasil, para você.
         </h1>
 
-        <div class="input">
+        <form class="input">
             <input
                 class="input-num"
                 maxlength="9"
@@ -53,15 +48,15 @@
                 bind:value={cepValue}
                 class:erro-input={statusDeErro === true}
             />
-        </div>
 
-        {#if statusDeErro === true}
-            <span><p class="aviso">O cep não existe!</p></span>
-        {/if}
+            {#if statusDeErro === true}
+                <span><p class="aviso">O cep não existe!</p></span>
+            {/if}
 
-        <div class="botao">
-            <button class="botao-busca" on:click={aoSubmeter}>Buscar</button>
-        </div>
+            <div class="botao">
+                <button class="botao-busca" on:click={aoSubmeter}>Buscar</button>
+            </div>
+        </form>
     </section>
 
     {#if dadosApi}
@@ -75,7 +70,7 @@
             </div>
         </section>
     {/if}
-</div>
+</header>
 
 <style>
     @import url("https://fonts.googleapis.com/css2?family=Golos+Text:wght@500&display=swap");
@@ -95,9 +90,7 @@
         width: 450px;
         height: 450px;
         background: #ffffffe7;
-        display: block;
-        justify-content: center;
-        flex-direction: column;
+        display: inline-block;
         box-shadow: 0px 4px 5px 2px rgba(0, 0, 0, 5);
         border-radius: 15px;
     }
@@ -108,12 +101,15 @@
     }
 
     .input {
+        flex-direction: column;
         display: flex;
         justify-content: center;
-        margin-top: 50px;
+        align-items: center;
     }
 
     .input-num {
+        margin-bottom: 20px;
+        margin-top: 20px;
         width: 250px;
         height: 50px;
         border-radius: 10px;
@@ -124,20 +120,20 @@
     }
 
     .aviso {
-        display: flex;
+        display: inline-block;
         justify-content: center;
         margin: 15px;
         color: red;
     }
 
-    .erro-input{
+    .erro-input {
         border: 1px solid #ff003e;
+        margin-bottom: 0px;
     }
 
     .botao {
         display: flex;
         justify-content: center;
-        margin-top: 15px;
     }
 
     .botao-busca {
